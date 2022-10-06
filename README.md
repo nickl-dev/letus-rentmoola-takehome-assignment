@@ -5,7 +5,7 @@
   alt="Letus/Rentmoola Logo"
 />
 
-### Create a To-Do list with the following features:
+### Q1. Create a To-Do list with the following features:
 1. Ability to create, update, and delete a task.
 2. Ability to mark a task as done.
 
@@ -24,3 +24,34 @@
 3. UI/UX
 
 <strong>Note: Please provide references for any code taken from the internet.</strong>
+
+
+### Q2. Given:
+```
+function func(cont, cMatch) {
+    for (var i = 0; i < cont.length; ++i) {
+      if (cMatch(cont[i], i)) {
+        cont.splice(i, 1);
+      }
+    }
+  }
+```
+What is “func” trying to accomplish? Are there any problems with the function?
+
+
+### Q3. Is there anything wrong with the code snipped below?
+```
+var ARR = ['hello', 'my', 'name', 'is', 'test'];
+
+try {
+  for (var i = 0; i <= ARR.length; ++i) {
+    (function () {
+      setTimeout(function () {
+        if (!ARR[i]) throw Error('Empty word!');
+        console.log(ARR[i]);
+      }, i * 10);
+    })();
+  }
+} catch (e) {
+  console.log('Error: ' + e);
+}
