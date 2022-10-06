@@ -1,0 +1,11 @@
+Given:
+
+function func(cont, cMatch) {
+  for (var i = 0; i < cont.length; ++i) {
+    if (cMatch(cont[i], i)) {
+      cont.splice(i, 1);
+    }
+  }
+}
+
+What is “func” trying to accomplish? Are there any problems with the function?
