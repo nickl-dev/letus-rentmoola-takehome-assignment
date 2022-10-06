@@ -18,9 +18,9 @@
 1. Pagination, 5 tasks a page.
 2. Covered with test cases.
 
-<strong>Note: Please provide references for any code taken from the internet.</strong>
-
 <strong>Things we are looking for:</strong>
 1. Good architecture
 2. State management
 3. UI/UX
+
+<strong>Note: Please provide references for any code taken from the internet.</strong>
