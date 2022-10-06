@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letus/Rentmoola Takehome Assignment (Q3)</title>
+  <meta name="description" content="Letus/Rentmoola Takehome Assignment (Q3)" />
+  <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/64946/cash-clipart-md.png" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <a href="../index.html">
+          <li>Home</li>
+      </a>
+      <a href="./q2.html">
+          <li>Q1</li>
+      </a>
+      <a href="./q3.html">
+          <li>Q2</li>
+      </a>
+    </ul>
+  </nav>
+
+  Is there anything wrong with the code snipped below?
+
+var ARR = ['hello', 'my', 'name', 'is', 'test'];
+
+try {
+  for (var i = 0; i <= ARR.length; ++i) {
+    (function () {
+      setTimeout(function () {
+        if (!ARR[i]) throw Error('Empty word!');
+        console.log(ARR[i]);
+      }, i * 10);
+    })();
+  }
+} catch (e) {
+  console.log('Error: ' + e);
+}
+</body>
+</html>
