@@ -1,9 +1,7 @@
 ## Letus/Rentmoola Takehome Assignment
 
 <img 
-  src="https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/13c0a6c6-45f1-458a-af1f-258100fabc4d.png" 
-  width="150" 
-  height="150"
+  src="https://gdm-catalog-fmapi-prod.imgix.net/ProductLogo/13c0a6c6-45f1-458a-af1f-258100fabc4d.png"
   alt="Letus/Rentmoola Logo"
 />
 
