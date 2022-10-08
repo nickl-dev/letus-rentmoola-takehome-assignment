@@ -3,6 +3,7 @@
 <img 
   src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5fc8ff888f14430001f4b141/0x0.png"
   alt="Letus/Rentmoola Logo"
+  width="300px"
 />
 
 ### Q1. Create a To-Do list with the following features:
