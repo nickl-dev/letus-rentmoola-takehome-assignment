@@ -2,6 +2,7 @@ const toDoInput = document.getElementById('todo-list__input');
 const addButton = document.getElementById('todo-list__add-button');
 const toDoList = document.getElementById('todo-list');
 const toDos = JSON.parse(localStorage.getItem('todos')) || [];
+let toDoListItems = [...document.querySelectorAll('.todo')];
 
 const createToDo = toDoValue => {
   const toDo = document.createElement('li');
@@ -25,40 +26,56 @@ const updatelocalStorage = () => localStorage.setItem('todos', JSON.stringify(to
 // checks localStorage for existing todos when page loads
 window.onload = () => {
   if (toDos !== []) {
-    toDos.forEach(todo => {
-      createToDo(todo)
-    })
+    for (const toDo of toDos) {
+      createToDo(toDo)
+    }
   }
 }
 
 const addToToDos = (toDoValue) => {
   // check if input has a value
-  if (toDoValue.trim() !== '') {
+  if (toDoValue.trim() === '') {
+    alert('Please enter a valid ToDo.')
+    
+    // clear input value
+    toDoInput.value = '';
 
-    // check if todo already exists
-    if (toDos.find(value => value === toDoValue.trim())) {
-      alert('To-Do already exists.');
-    } else {
-      // add todo to array and update localStorage
-      toDos.push(toDoValue);
-      updatelocalStorage();
-  
-      // create todo and add to list
-      createToDo(toDoValue);
+    return;
+  } else {
+    for (const toDo of toDos) {
+      if (toDo === toDoValue.trim()) {
+        alert('To-Do already exists.');
+
+        // clear input value
+        toDoInput.value = '';
+
+        return;
+      }
     }
   }
+
+  // add todo to array and update localStorage
+  toDos.push(toDoValue);
+  updatelocalStorage();
+
+  // create todo and add to list
+  createToDo(toDoValue);  
 
   // clear input value
   toDoInput.value = '';
 }
 
-const removeFromToDos = () => {
+const removeFromToDos = (toDoValue) => {
   const index = toDos.indexOf(toDoValue);
   if (index > -1) toDos.splice(index, 1);
+  console.log('trying to remove')
   updatelocalStorage();
+  return toDos;
 }
 
 toDoInput.addEventListener('keyup', () => console.log(toDoInput.value.trim()))
 addButton.addEventListener('click', () => addToToDos(toDoInput.value));
 
-console.log(toDoList.querySelectorAll('.todo'));
+for(const item of toDoListItems) {
+  console.log(item)
+}
