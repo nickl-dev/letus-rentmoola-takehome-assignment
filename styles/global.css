@@ -1,15 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat';
 }
 
 body {
-  font-family: 'Montserrat';
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
   animation: fadeIn 0.5s;
 }
@@ -20,23 +19,25 @@ header {
   justify-content: center;
 }
 
-.logo {
-  width: 60%;
-  max-width: 250px;
-}
-
 .code-snippet {
   width: 100%;
   max-width: 700px;
   margin: 10px auto 0 auto;
 }
 
-ul {
+.flex-row-center {
   display: flex;
   justify-content: center;
   align-items: center;
   list-style-type: none;
   width: 100%;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .primary-nav {
@@ -68,32 +69,21 @@ ul {
   text-decoration-color: #51c15c;
 }
 
-.secondary-nav {
-  margin-top: 30px;
+h1 {
+  font-size: 24px;
 }
 
-.secondary-nav__link {
+.button {
   padding: 8px 16px;
   background-color: #51c15c;
   color: #fff;
-  text-decoration: none;
   border-radius: 0.3em;
+  border: none;
 }
 
-.secondary-nav__link:hover {
+.button:hover {
   background-color: #3aa244;
-}
-
-.secondary-nav__link:not(last-child) {
-  margin-right: 10px;
-}
-
-header h1 {
-  margin-top: 30px;
-}
-
-h1 {
-  font-size: 24px;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
@@ -104,8 +94,5 @@ h1 {
       opacity: 1;
    }
 }
-
-
-
 
 

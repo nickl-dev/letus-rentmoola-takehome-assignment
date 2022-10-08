@@ -1,0 +1,30 @@
+body {
+  margin-top: 70px;
+  padding-top: 90px;
+}
+
+#todo-list-wrapper {
+  min-height: 300px;
+  width: 90%;
+  max-width: 500px;
+  margin: 30px auto 0 auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid #51c15c;
+  border-right: none;
+  border-radius: 0.3em 0 0 0.3em;
+}
+
+.input-wrapper {
+  margin-top: 20px;
+}
+
+.button {
+  font-size: 20px;
+  border-radius: 0 0.3em 0.3em 0;
+  height: 38px;
+}

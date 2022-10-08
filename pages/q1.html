@@ -7,12 +7,12 @@
   <title>Letus Takehome Assignment (Q1)</title>
   <meta name="description" content="Letus Takehome Assignment (Q1)" />
   <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/64946/cash-clipart-md.png" />
-  <link rel="stylesheet" href="../styles/styles.css" />
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="stylesheet" href="../styles/global.css" />
+  <link rel="stylesheet" href="../styles/q1.css" />
 </head>
 <body>
   <nav class="primary-nav">
-    <ul>
+    <ul class="flex-row-center">
       <li>
         <a class="primary-nav__link" href="../index.html">Home</a>
       </li>
@@ -27,5 +27,19 @@
       </li>
     </ul>
   </nav>
+
+  <section>
+    <h1>To-Do List</h1>
+    <div class="flex-row-center input-wrapper">
+      <input id="todo-list__input" type="text" required placeholder="Enter Your To-Do here..." />
+      <button id="todo-list__add-button" class="button">&#43;</button>
+    </div>
+
+    <div id="todo-list-wrapper">
+      <ul id="todo-list"></ul>
+    </div>
+  </section>
+
+  <script src="../scripts/script.js"></script>
 </body>
 </html>
