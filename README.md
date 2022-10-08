@@ -1,8 +1,8 @@
-## Letus/Rentmoola Takehome Assignment
+## Letus Takehome Assignment
 
 <img 
   src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5fc8ff888f14430001f4b141/0x0.png"
-  alt="Letus/Rentmoola Logo"
+  alt="Letus Logo"
   width="300px"
 />
 
