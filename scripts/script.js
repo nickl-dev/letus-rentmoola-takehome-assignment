@@ -1,33 +1,45 @@
-const toDoInput = document.getElementById('todo-list__input');
-const addButton = document.getElementById('todo-list__add-button');
+const input = document.getElementById('input');
+const addButton = document.getElementById('add');
 const toDoList = document.getElementById('todo-list');
-const toDos = JSON.parse(localStorage.getItem('todos')) || [];
-let toDoListItems = [...document.querySelectorAll('.todo')];
+const doneList = document.getElementById('done-list');
+
+/*
+ * return data from localStorage if it's stored
+ * otherwise return an empty array
+ */
+const toDoItems = JSON.parse(localStorage.getItem('todos')) || [];
+const doneItems = JSON.parse(localStorage.getItem('done')) || [];
 
 const createToDo = toDoValue => {
   const toDo = document.createElement('li');
-  const toDoDeleteButton = document.createElement('button');
-  const toDoEditButton = document.createElement('button');
+  const editButton = document.createElement('button');
+  const deleteButton = document.createElement('button');
 
   toDo.classList.add('todo');
-  toDoDeleteButton.classList.add('todo__delete-button');
-  toDoEditButton.classList.add('todo__edit-button');
+  editButton.classList.add('edit');
+  deleteButton.classList.add('delete');
 
   toDo.innerHTML = toDoValue;
-  toDoDeleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
-  toDoEditButton.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+  deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+  editButton.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
   
-  toDo.append(toDoDeleteButton, toDoEditButton);
+  toDo.append(editButton, deleteButton);
   toDoList.appendChild(toDo);
 }
 
-const updatelocalStorage = () => localStorage.setItem('todos', JSON.stringify(toDos));
+const updatelocalStorage = (value) => localStorage.setItem('todos', JSON.stringify(value));
 
-// checks localStorage for existing todos when page loads
+// checks localStorage for existing todo and done items when page loads
 window.onload = () => {
-  if (toDos !== []) {
-    for (const toDo of toDos) {
+  if (toDoItems !== []) {
+    for (const toDo of toDoItems) {
       createToDo(toDo)
+    }
+  }
+
+  if (doneItems !== []) {
+    for (const doneItem of doneItems) {
+      createItem(doneItem)
     }
   }
 }
@@ -38,16 +50,16 @@ const addToToDos = (toDoValue) => {
     alert('Please enter a valid ToDo.')
     
     // clear input value
-    toDoInput.value = '';
+    input.value = '';
 
     return;
   } else {
-    for (const toDo of toDos) {
+    for (const toDo of toDoItems) {
       if (toDo === toDoValue.trim()) {
         alert('To-Do already exists.');
 
         // clear input value
-        toDoInput.value = '';
+        input.value = '';
 
         return;
       }
@@ -55,27 +67,23 @@ const addToToDos = (toDoValue) => {
   }
 
   // add todo to array and update localStorage
-  toDos.push(toDoValue);
-  updatelocalStorage();
+  toDoItems.push(toDoValue);
+  updatelocalStorage(toDoItems);
 
   // create todo and add to list
   createToDo(toDoValue);  
 
   // clear input value
-  toDoInput.value = '';
+  input.value = '';
 }
 
 const removeFromToDos = (toDoValue) => {
-  const index = toDos.indexOf(toDoValue);
-  if (index > -1) toDos.splice(index, 1);
+  const index = toDoItems.indexOf(toDoValue);
+  if (index > -1) toDoItems.splice(index, 1);
   console.log('trying to remove')
-  updatelocalStorage();
-  return toDos;
+  updatelocalStorage(toDoItems);
+  return toDoItems;
 }
 
-toDoInput.addEventListener('keyup', () => console.log(toDoInput.value.trim()))
-addButton.addEventListener('click', () => addToToDos(toDoInput.value));
-
-for(const item of toDoListItems) {
-  console.log(item)
-}
+input.addEventListener('keyup', () => console.log(input.value.trim()))
+addButton.addEventListener('click', () => addToToDos(input.value));

@@ -1,22 +1,45 @@
 body {
-  margin-top: 70px;
   padding-top: 90px;
+  margin-top: 70px;
 }
 
-#todo-list-wrapper {
-  min-height: 300px;
-  width: 90%;
+main { 
+  padding: 0 20px; 
+  margin: 0 auto; 
+  max-width: 500px; 
+}
+
+h2 {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+#list-wrapper {
+  width: 100%;
   max-width: 500px;
+  min-height: 300px;
+  padding: 20px;
   margin: 30px auto 0 auto;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.3em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
+}
+
+#todo-list, #done-list {
+  min-height: 100px;
 }
 
 input {
+  width: 100%;
   padding: 10px;
-  outline: none;
   border: 1px solid #51c15c;
   border-right: none;
   border-radius: 0.3em 0 0 0.3em;
+  outline: none;
+}
+
+input:focus {
+  background-color: rgba(81, 193, 92, 0.1);
+  border-color: #3aa244;
 }
 
 .input-wrapper {
@@ -25,6 +48,6 @@ input {
 
 .button {
   font-size: 20px;
-  border-radius: 0 0.3em 0.3em 0;
   height: 38px;
+  border-radius: 0 0.3em 0.3em 0;
 }
