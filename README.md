@@ -1,15 +1,10 @@
 ## Letus Takehome Assignment
 
-<a 
-  href="https://www.let.us/" 
-  target="_blank"
->
-  <img 
-    src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5fc8ff888f14430001f4b141/0x0.png"
-    alt="Letus Logo"
-    width="300px"
-  />
-</a>
+<img 
+  src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5fc8ff888f14430001f4b141/0x0.png"
+  alt="Logo that says 'Letus - Flexible Rent, Infinite Possibilities'"
+  width="300px"
+/>
 
 ### Q1. Create a To-Do list with the following features:
 1. Ability to create, update, and delete a task.
