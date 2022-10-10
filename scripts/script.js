@@ -1,89 +1,113 @@
-const input = document.getElementById('input');
-const addButton = document.getElementById('add');
+const form = document.getElementById('todo-form');
+const input = document.getElementById('todo-add-input');
+const addButton = document.getElementById('todo-add-button');
 const toDoList = document.getElementById('todo-list');
-const doneList = document.getElementById('done-list');
+let toDoItems;
 
-/*
- * return data from localStorage if it's stored
- * otherwise return an empty array
+/** 
+ * checks localStorage for existing todo items when page loads
+ * then renders them
  */
-const toDoItems = JSON.parse(localStorage.getItem('todos')) || [];
-const doneItems = JSON.parse(localStorage.getItem('done')) || [];
+window.onload = () => {
+  getToDosFromLocalStorage();
+};
 
-const createToDo = toDoValue => {
-  const toDo = document.createElement('li');
+function getToDosFromLocalStorage () {
+  toDoItems = JSON.parse(localStorage.getItem('todos')) || [];
+  return toDoItems;
+}
+
+/**
+ * Create To-Do
+ * @param {string} Value of To-Do
+ * @desc Creates a To-Do element,
+ * appends it to the list
+ * and adds it to the
+ * @returns {object} item (<li>)
+ */
+function createItem (value) {
+  const newItem = document.createElement('li');
   const editButton = document.createElement('button');
   const deleteButton = document.createElement('button');
 
-  toDo.classList.add('todo');
+  newItem.classList.add('todo');
   editButton.classList.add('edit');
   deleteButton.classList.add('delete');
 
-  toDo.innerHTML = toDoValue;
-  deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+  newItem.innerHTML = value;
   editButton.innerHTML = '<i class="fa fa-pencil" aria-hidden="true"></i>';
+  deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+
+  deleteButton.addEventListener('click', deleteItem);
   
-  toDo.append(editButton, deleteButton);
-  toDoList.appendChild(toDo);
-}
+  newItem.append(editButton, deleteButton);
 
-const updatelocalStorage = (value) => localStorage.setItem('todos', JSON.stringify(value));
+  return newItem;
+};
 
-// checks localStorage for existing todo and done items when page loads
-window.onload = () => {
-  if (toDoItems !== []) {
-    for (const toDo of toDoItems) {
-      createToDo(toDo)
-    }
-  }
+/**
+ * Update Local Storage
+ * @desc Updates localStorage when an item
+ * is created, edited, or deleted
+ * @param {array} toDos
+ */
+function updatelocalStorage (value = toDoItems) {
+  localStorage.setItem('todos', JSON.stringify(value));
+};
 
-  if (doneItems !== []) {
-    for (const doneItem of doneItems) {
-      createItem(doneItem)
-    }
-  }
-}
 
-const addToToDos = (toDoValue) => {
+/**
+ * Add Item
+ * @desc Creates and appends a new item to the list,
+ * adds new value to the array,
+ * then updates localStorage with updated array
+ * @param {string} value
+ */
+function addItem (value) {
   // check if input has a value
-  if (toDoValue.trim() === '') {
+  if (value.trim() === '') {
     alert('Please enter a valid ToDo.')
-    
-    // clear input value
     input.value = '';
-
     return;
   } else {
     for (const toDo of toDoItems) {
-      if (toDo === toDoValue.trim()) {
+      if (toDo.toLowerCase() === value.toLowerCase().trim()) {
         alert('To-Do already exists.');
-
-        // clear input value
         input.value = '';
-
         return;
       }
     }
   }
 
   // add todo to array and update localStorage
-  toDoItems.push(toDoValue);
+  toDoItems.push(value);
   updatelocalStorage(toDoItems);
 
-  // create todo and add to list
-  createToDo(toDoValue);  
+  // create todo item
+  const newItem = createItem(value);  
+
+  // add new todo item to list
+  toDoList.appendChild(newItem);
 
   // clear input value
   input.value = '';
-}
+};
 
-const removeFromToDos = (toDoValue) => {
-  const index = toDoItems.indexOf(toDoValue);
+/**
+ * Delete Item
+ * @desc Deletes element from todo list
+ * and removes it from the array
+ * @param {object} event
+ */
+function deleteItem (event) {
+  const item = event.target.parentElement.parentElement;
+  console.log(item.innerHTML);
+  toDoList.removeChild(item);
+  const index = toDoItems.indexOf(item.innerHTML);
   if (index > -1) toDoItems.splice(index, 1);
-  console.log('trying to remove')
-  updatelocalStorage(toDoItems);
-  return toDoItems;
-}
+  updatelocalStorage();
+};
 
-input.addEventListener('keyup', () => console.log(input.value.trim()))
-addButton.addEventListener('click', () => addToToDos(input.value));
+function editItem (value) {};
+
+addButton.addEventListener('click', () => addItem(input.value));

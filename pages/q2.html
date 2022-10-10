@@ -30,9 +30,32 @@
 
   <h1>Given:</h1>
 
-  <section>
+  <main>
     <img src="../assets/q2-code-snippet.png" class="code-snippet">
     <p>What is “func” trying to accomplish? Are there any problems with the function?</p>
+  </main>
+
+  <section id="answer">
+    <p>
+      <code>func</code> is a function, declared via standard function declaration, that accepts 2 paramaters: <strong>an array, and a callback function.</strong>
+    </p>
+
+    <br/>
+
+    <p>
+      The callback function's purpose is to check if 2 values match - given the invocation of the callback function in the <code>for</code> loop with it's 2 arguments: (<code>cont[i]</code>, which represents the current value, and <code>i</code>, which represents the current index.
+    </p>
+
+    <br/> 
+
+    <p>
+      The purpose of this <code>func</code> function is to loop through an array, and for each value, invoke the callback function and check to see whether or not the <strong>current value matches with the current index</strong>; if this is true, remove that value from the array, otherwise, do nothing.
+    </p>
+
+    <p>
+      The main issue with this function is that the values can be skipped. For example, if we pass in an array of <code>[0, 1, 2, 3]</code>, on the first iteration, our conditional will return true because <code>i (0)</code> is equal to the current value (0). We remove that item from the array, now the array looks like <code>[1, 2, 3]</code>, but <code>i</code> increments to 1 now, which means the current value we're looking at would be 2. We don't even look at 1, which means it doesn't get evaluated, which defeats the purpose of this function: to check <strong>EACH</strong> value and see if it matches the current index.
+    </p>
+    
   </section>
   
 </body>
