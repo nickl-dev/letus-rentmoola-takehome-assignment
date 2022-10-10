@@ -13,27 +13,27 @@
 </head>
 <body>
   <nav class="primary-nav">
-    <ul class="flex-row-center">
-      <li>
+    <ul class="primary-nav__list flex-row-center">
+      <li class="priamry-nav__list-item">
         <a class="primary-nav__link" href="../index.html">Home</a>
       </li>
-      <li>
+      <li class="primary-nav__list-item">
         <a class="primary-nav__link primary-nav__link--active" href="/q1.html">Q1</a>
       </li>
-      <li>
+      <li class="primary-nav__list-item">
         <a class="primary-nav__link" href="./q2.html">Q2</a>
       </li>
-      <li>
+      <li class="primary-nav__list-item">
         <a class="primary-nav__link" href="./q3.html">Q3</a>
       </li>
     </ul>
   </nav>
 
-  <main>
-    <h1 class="text-center">To-Do List</h1>
+  <main class="code-question">
+    <h1>To-Do List</h1>
 
     <form id="todo-form">
-      <div class="flex-row-center todo-input-wrapper">
+      <div class="flex-row-center" id="todo-input-wrapper">
         <input id="todo-add-input" type="text" placeholder="e.g. grocery shopping" />
         <button id="todo-add-button" class="button">&#43;</button>
       </div>

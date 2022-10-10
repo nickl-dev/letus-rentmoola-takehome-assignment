@@ -1,37 +1,13 @@
-body {
-  padding-top: 90px;
-  margin-top: 70px;
-}
+@import './global.css';
 
-main { 
-  padding: 0 20px; 
-  margin: 0 auto; 
-  max-width: 500px; 
+#todo-input-wrapper {
+  margin-top: 20px;
 }
-
-h2 {
-  font-size: 20px;
-  text-decoration: underline;
-}
-
-#list-wrapper {
-  width: 100%;
-  max-width: 500px;
-  min-height: 300px;
-  padding: 20px;
-  margin: 30px auto 0 auto;
-  border-radius: 0.3em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
-}
-
-/* #todo-list {
-  min-height: 100px;
-} */
 
 input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #51c15c;
+  border: 1px solid var(--green-100);
   border-right: none;
   border-radius: 0.3em 0 0 0.3em;
   outline: none;
@@ -39,11 +15,7 @@ input {
 
 input:focus {
   background-color: rgba(81, 193, 92, 0.1);
-  border-color: #3aa244;
-}
-
-.input-wrapper {
-  margin-top: 20px;
+  border-color: var(--green-200);
 }
 
 .button {
@@ -51,3 +23,14 @@ input:focus {
   height: 38px;
   border-radius: 0 0.3em 0.3em 0;
 }
+
+#todo-list-wrapper {
+  width: 100%;
+  min-height: 300px;
+  padding: 20px;
+  margin: 30px auto 0 auto;
+  border-radius: 0.3em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
+}
+
+

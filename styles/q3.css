@@ -1,0 +1,12 @@
+ol {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+ol > li::marker {
+  font-weight: bold;
+}
+
+ol > li:not(last-child) {
+  margin-bottom: 10px
+}
