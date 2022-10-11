@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-/* shared colors */
-:root {
-  --white: #fff;
-  --green-100: #51c15c;
-  --green-200: #3aa244;
-}
+@import './_variables.css';
+@import './_helpers.css';
 
 /* fade in animation shared between all pages */
 @keyframes fadeIn {
@@ -39,10 +34,32 @@ input, button { font-family: inherit; }
 
 code { font-size: 16px; }
 
+/* shared footer */
+footer {
+  width: 100%;
+  padding: 15px 5%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray-200);
+}
+
+footer > p {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--gray-100);
+}
+
+footer img {
+  display: none;
+}
+
 .code-question {  
   max-width: 700px;
   margin: 0 auto;
-  padding: 130px 20px 65px 20px;
+  padding: 130px 20px;
 }
 
 .code-snippet {
@@ -88,35 +105,16 @@ code { font-size: 16px; }
   text-decoration-color: var(--green-100);
 }
 
+/* media queries */
+@media only screen and (min-width: 768px) {
+  footer {
+    justify-content: space-between;
+  }
 
-
-.button {
-  padding: 8px 16px;
-  background-color: var(--green-100);
-  color: #fff;
-  border-radius: 0.3em;
-  border: none;
-  outline: none;
-}
-
-.button:hover, .button:focus {
-  background-color: var(--green-200);
-  cursor: pointer;
-}
-
-.flex-row-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  width: 100%;
-}
-
-.flex-column-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  footer img {
+    display: inline-block;
+    width: 100px;
+  }
 }
 
 

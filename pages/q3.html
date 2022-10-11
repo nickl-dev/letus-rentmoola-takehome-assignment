@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Letus Takehome Assignment (Q3)</title>
-  <meta name="description" content="Letus Takehome Assignment (Q3)" />
-  <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/64946/cash-clipart-md.png" />
-  <link rel="stylesheet" href="../styles/global.css" />
-  <link rel="stylesheet" href="../styles/q3.css" />
-</head>
-<body>
-  <nav class="primary-nav">
-    <ul class="primary-nav__list flex-row-center">
-      <li class="primary-nav__list-item">
-        <a class="primary-nav__link" href="../index.html">Home</a>
-      </li>
-      <li class="primary-nav__list-item">
-        <a class="primary-nav__link" href="./q1.html">Q1</a>
-      </li>
-      <li class="primary-nav__list-item">
-        <a class="primary-nav__link" href="./q2.html">Q2</a>
-      </li>
-      <li class="primary-nav__list-item">
-        <a class="primary-nav__link primary-nav__link--active" href="./q3.html">Q3</a>
-      </li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letus Takehome Assignment (Q3)</title>
+    <meta name="description" content="Letus Takehome Assignment (Q3)" />
+    <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/64946/cash-clipart-md.png" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/q3.css" />
+  </head>
+  <body>
+    <nav class="primary-nav">
+      <ul class="flex-row-center">
+        <li>
+          <a class="primary-nav__link" href="../index.html">Home</a>
+        </li>
+        <li>
+          <a class="primary-nav__link" href="./q1.html">Q1</a>
+        </li>
+        <li>
+          <a class="primary-nav__link" href="./q2.html">Q2</a>
+        </li>
+        <li>
+          <a class="primary-nav__link primary-nav__link--active" href="./q3.html">Q3</a>
+        </li>
+      </ul>
+    </nav>
 
-  <main class="code-question">
-    <!-- QUESTION -->
-    <section class="code-question__question">
-      <h1>Is there anything wrong with the code snipped below?</h1>
-      <img 
-        src="../assets/q3-code-snippet.png" 
-        class="code-snippet"
-        alt="Code snippet"
-      />
-    </section>
+    <main class="code-question">
+      <!-- QUESTION -->
+      <section class="code-question__question">
+        <h1>Is there anything wrong with the code snipped below?</h1>
+        <img 
+          src="../assets/q3-code-snippet.png" 
+          class="code-snippet"
+          alt="Code snippet"
+        />
+      </section>
 
-    <hr class="divider"/>
-    
-    <!-- ANSWER -->
-    <section class="code-question__answer">
-      <p>Yes. There are <strong>3</strong> main issues with the code snippet above:</p>
+      <hr class="divider"/>
+      
+      <!-- ANSWER -->
+      <section class="code-question__answer">
+        <p>Yes. There are <strong>3</strong> main issues with the code snippet above:</p>
 
-      <ol>
-        <li>In the <code>for</code> loop initialization, we're definine our index variable <code>i</code> with <code>var</code>. This is going to cause the <code>console.log</code> statements to print <code>undefined</code> as the definition of this variable is in it's own block (<code>var</code> variables are <strong>block scoped</strong>), so we don't have access to this variable outside of it's scope within the anonymous/callback function we pass to our <code>setTimeout</code>. One of the big downfalls with using <code>var</code> is that even if it's returning <code>undefined</code> due to scope limitations, it won't actually throw an error. With ES6 <code>let</code> and <code>const</code>, an error will be thrown so we know that there's an issue with the variables that we're referencing.</li>
-        <li>In the <code>for</code> loop initialization, our conditional is <em>'run this loop as long as i is LESS than or EQUAL to the length of the array (ARR)</em>'. The length of the array (ARR) is 5, but JavaScript arrays use zero-based indexing, so the last index in our array (ARR) would actually be 4. Since we're allowing our loop to run to the LENGTH of our array, which would be 5, this will cause the last log to print <code>undefined</code> as there's no value at index 5.</li>
-        <li>We're throwing an error with <code>throw Error(...)</code>, which is fine, but if we want the rest of the values to be logged, this won't happen as <strong>throwing an error stops execution.</strong></li>
-      </ol>
-    </section>
+        <ol>
+          <li>In the <code>for</code> loop initialization, we're definine our index variable <code>i</code> with <code>var</code>. This is going to cause the <code>console.log</code> statements to print <code>undefined</code> as the definition of this variable is in it's own block (<code>var</code> variables are <strong>block scoped</strong>), so we don't have access to this variable outside of it's scope within the anonymous/callback function we pass to our <code>setTimeout</code>. One of the big downfalls with using <code>var</code> is that even if it's returning <code>undefined</code> due to scope limitations, it won't actually throw an error. With ES6 <code>let</code> and <code>const</code>, an error will be thrown so we know that there's an issue with the variables that we're referencing.</li>
+          <li>In the <code>for</code> loop initialization, our conditional is <em>'run this loop as long as i is LESS than or EQUAL to the length of the array (ARR)</em>'. The length of the array (ARR) is 5, but JavaScript arrays use zero-based indexing, so the last index in our array (ARR) would actually be 4. Since we're allowing our loop to run to the LENGTH of our array, which would be 5, this will cause the last log to print <code>undefined</code> as there's no value at index 5.</li>
+          <li>We're throwing an error with <code>throw Error(...)</code>, which is fine, but if we want the rest of the values to be logged, this won't happen as <strong>throwing an error stops execution.</strong></li>
+        </ol>
+      </section>
 
-    <hr class="divider"/>
+      <hr class="divider"/>
 
-    <!-- REFACTOR -->
-    <section class="code-question__refactor">
-      <p>I would refactor the code snippet above to the following:</p>
+      <!-- REFACTOR -->
+      <section class="code-question__refactor">
+        <p>I would refactor the code snippet above to the following:</p>
 
-      <img 
-        src="../assets/q3-refactor-snippet.png" 
-        class="code-snippet" 
-        alt="Code snippet" 
-      />
-    </section>
-  </main>
-</body>
+        <img 
+          src="../assets/q3-refactor-snippet.png" 
+          class="code-snippet" 
+          alt="Code snippet" 
+        />
+      </section>
+    </main>
+
+    <footer>
+      <p>2022 LETUS TAKEHOME ASSIGNMENT &copy;</p>
+      <a href="https://let.us/" target="_blank">
+        <img
+          src="../assets/letus-footer-logo.png"
+          alt="Logo that says 'Letus - Flexible Rent, Infinite Possibilities'"
+        />
+      </a>
+    </footer>
+  </body>
 </html>
