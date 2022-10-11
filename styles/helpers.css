@@ -1,7 +1,9 @@
+@import './global.css';
+
 .button {
   padding: 8px 16px;
   background-color: var(--green-100);
-  color: #fff;
+  color: var(--white);
   border-radius: 0.3em;
   border: none;
   outline: none;
