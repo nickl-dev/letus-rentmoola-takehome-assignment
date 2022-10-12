@@ -1,0 +1,10 @@
+/* Shared colors */
+:root {
+  --white: #fff;
+  --green-100: #51c15c1a;
+  --green-200: #51c15c;
+  --green-300: #3aa244;
+  --gray-100: #dddddd;
+  --gray-200: #ffffff80;
+  --gray-300: #2a2a2a;
+}
