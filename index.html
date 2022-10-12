@@ -7,8 +7,8 @@
     <title>Letus Takehome Assignment | Home</title>
     <meta name="description" content="Letus Takehome Assignment (Home)" />
     <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/64946/cash-clipart-md.png" />
-    <link rel="stylesheet" href="../styles/index.css" />
-    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body class="flex-column-center">
     <nav class="primary-nav">
@@ -17,48 +17,49 @@
           <a class="primary-nav__link primary-nav__link--active" href="/index.html">Home</a>
         </li>
         <li>
-          <a class="primary-nav__link" href="./pages/q1.html">Q1</a>
+          <a class="primary-nav__link" href="./src/pages/question-1.html">Q1</a>
         </li>
         <li>
-          <a class="primary-nav__link" href="./pages/q2.html">Q2</a>
+          <a class="primary-nav__link" href="./src/pages/question-2.html">Q2</a>
         </li>
         <li>
-          <a class="primary-nav__link" href="./pages/q3.html">Q3</a>
+          <a class="primary-nav__link" href="./src/pages/question-3.html">Q3</a>
         </li>
       </ul>
     </nav>
 
-    <header>
+    <header id="header">
       <a href="https://let.us/" target="_blank">
         <img 
-          src="./assets/letus-header-logo.png"
+          src="./src/assets/letus-header-logo.png"
           alt="Logo that says 'Letus - Flexible Rent, Infinite Possibilities'"
-          class="logo"
+          id="header__logo"
         />
       </a>
-      <h1>Takehome Assignment</h1>
+      <h1 id="header__title">Takehome Assignment</h1>
     </header>
 
     <nav class="secondary-nav">
       <ul class="flex-row-center">
         <li>
-          <a class="secondary-nav__link button" href="./pages/q1.html">Q1</a>
+          <a class="secondary-nav__link button" href="./src/pages/question-1.html">Q1</a>
         </li>
         <li>
-          <a class="secondary-nav__link button" href="./pages/q2.html">Q2</a>
+          <a class="secondary-nav__link button" href="./src/pages/question-2.html">Q2</a>
         </li>
         <li>
-          <a class="secondary-nav__link button" href="./pages/q3.html">Q3</a>
+          <a class="secondary-nav__link button" href="./src/pages/question-3.html">Q3</a>
         </li>
       </ul>
     </nav>
 
-    <footer>
-      <p>2022 LETUS TAKEHOME ASSIGNMENT &copy;</p>
+    <footer class="shared-footer">
+      <p class="shared-footer__copyright">2022 LETUS TAKEHOME ASSIGNMENT &copy;</p>
       <a href="https://let.us/" target="_blank">
         <img
-          src="./assets/letus-footer-logo.png"
+          src="./src/assets/letus-footer-logo.png"
           alt="Logo that says 'Letus - Flexible Rent, Infinite Possibilities'"
+          class="shared-footer__logo"
         />
       </a>
     </footer>

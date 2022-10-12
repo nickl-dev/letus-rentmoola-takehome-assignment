@@ -1,0 +1,14 @@
+#header { text-align: center; }
+
+#header__title { margin-top: 30px; }
+
+#header__logo {
+  width: 60%;
+  max-width: 300px;
+}
+
+.secondary-nav { margin-top: 30px; }
+
+.secondary-nav__link { text-decoration: none; }
+
+.secondary-nav__link:not(last-child) { margin-right: 10px; }

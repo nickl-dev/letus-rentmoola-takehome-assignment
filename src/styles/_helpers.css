@@ -1,0 +1,36 @@
+@import './global.css';
+
+.button {
+  padding: 8px 16px;
+  background-color: var(--green-200);
+  color: var(--white);
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+}
+
+.button:hover, .button:focus {
+  background-color: var(--green-300);
+  cursor: pointer;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  height: 3px;
+  background-color: var(--green-200);
+  margin: 20px auto;
+}

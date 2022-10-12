@@ -1,0 +1,8 @@
+.code-question__answer-list {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+.code-question__answer-item::marker { font-weight: bold; }
+
+.code-question__answer-item:not(last-child) { margin-bottom: 10px; }
