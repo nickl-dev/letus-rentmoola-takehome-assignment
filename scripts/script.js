@@ -1,4 +1,4 @@
-import { updateLocalStorage, trimAndLowerCase, resetInput, indexOf } from './utils.js';
+import { updateLocalStorage, trimAndLowerCase, resetInput, getIndex } from './utils.js';
 
 const toDoInput = document.getElementById('todo-add-input');
 const addButton = document.getElementById('todo-add-button');
@@ -87,7 +87,7 @@ export function createItem(value = toDoInput.value) {
   // Event listeners for save button
   saveButton?.addEventListener('click', () => {
     buttonWrapper?.appendChild(markAsDoneButton);
-    const index = indexOf(toDoItems, toDoTitle.innerText);
+    const index = getIndex(toDoItems, toDoTitle.innerText);
 
     if (index > -1) {
       toDoItems[index] = editInput.value;
@@ -139,7 +139,7 @@ export function addToDo(value, comingFromLocalStorage = false) {
     return;
   }
 
-  const toDoAlreadyExists = indexOf(toDoItems, trimAndLowerCase(value)) > -1;
+  const toDoAlreadyExists = getIndex(toDoItems, trimAndLowerCase(value)) > -1;
 
   if (toDoAlreadyExists) {
     alert('To-Do already exists.');
@@ -174,7 +174,7 @@ export function toggleEdit(...elements) {
  * @param {string} value to be removed from the toDoItems array
  */
 export function deleteItem(element, value) {
-  const index = indexOf(toDoItems, value.innerText);
+  const index = getIndex(toDoItems, value.innerText);
   if (index > -1) toDoItems.splice(index, 1);
 
   toDoList.removeChild(element);

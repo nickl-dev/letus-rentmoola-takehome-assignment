@@ -27,14 +27,14 @@ export function resetInput (input) {
 };
 
 /**
- * Index Of
+ * Get Index
  * @param {array} array of values to search
  * @param {value} value to search for in array 
  * @returns number that represents whether or not the value exists
  * If the value is found, return the index,
  * otherwise return -1
  */
-export function indexOf (array, value) {
+export function getIndex (array, value) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === value) return i
   }
