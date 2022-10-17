@@ -1,7 +1,7 @@
 import { updateLocalStorage, trimAndLowerCase, resetInput, getIndex } from './utils.js';
 
+const form = document.getElementById('todo-form');
 const toDoInput = document.getElementById('todo-add-input');
-const addButton = document.getElementById('todo-add-button');
 const toDoList = document.getElementById('todo-list');
 
 let toDoItems = JSON.parse(localStorage.getItem('todos')) || [];
@@ -14,12 +14,15 @@ let toDoItems = JSON.parse(localStorage.getItem('todos')) || [];
 (() => {
   if (toDoItems !== []) {
     for (const item of toDoItems) {
-      addToDo(item, true);
+      addToDo(item.value, true);
     }
   }
 })();
 
-addButton?.addEventListener('click', () => addToDo(toDoInput.value));
+form?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  addToDo(toDoInput.value);
+});
 
 /**
  * Create Item
@@ -90,7 +93,7 @@ export function createItem(value = toDoInput.value) {
     const index = getIndex(toDoItems, toDoTitle.innerText);
 
     if (index > -1) {
-      toDoItems[index] = editInput.value;
+      toDoItems[index].value = editInput.value;
       updateLocalStorage('todos', toDoItems);
     }
 
@@ -100,21 +103,21 @@ export function createItem(value = toDoInput.value) {
   });
 
   // Event listeners for delete button
-  deleteButton?.addEventListener('click', () => {
-    setTimeout(() => {
-      deleteItem(newListItem, toDoTitle);
-    }, 100);
-  });
+  deleteButton?.addEventListener('click', () => deleteItem(newListItem, toDoTitle));
 
   // Event listener for done button
   markAsDoneButton?.addEventListener("click", (event) => {
-    setTimeout(() => {
-      event.target.parentElement.parentElement.parentElement.firstChild.classList.add(
-        'todo--done'
-      );
+    const targetElement = event.target.parentElement.parentElement.parentElement.firstChild;
 
-      buttonWrapper.removeChild(markAsDoneButton);
-    }, 100);
+    for (const item of toDoItems) {
+      if (item.value === targetElement.innerText) {
+        item.isDone = !item.isDone;
+        if (item.isDone) targetElement.classList.add('todo--done');
+        else targetElement.classList.remove('todo--done');
+      }
+    }
+
+    updateLocalStorage('todos', toDoItems)
   });
 
   return newListItem;
@@ -139,17 +142,19 @@ export function addToDo(value, comingFromLocalStorage = false) {
     return;
   }
 
-  const toDoAlreadyExists = getIndex(toDoItems, trimAndLowerCase(value)) > -1;
+  const uniqueID = Math.floor(Date.now() / 1000);
 
-  if (toDoAlreadyExists) {
-    alert('To-Do already exists.');
-  } else {
-    toDoItems.push(value);
-    updateLocalStorage('todos', toDoItems);
+  toDoItems.push({
+    id: uniqueID,
+    value,
+    isDone: false,
+    createdAt: uniqueID
+  });
 
-    const newItem = createItem(value);
-    toDoList?.appendChild(newItem);
-  }
+  updateLocalStorage('todos', toDoItems);
+
+  const newItem = createItem(value);
+  toDoList?.appendChild(newItem);   
 
   resetInput(toDoInput);
 };

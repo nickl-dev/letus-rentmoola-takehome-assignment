@@ -36,7 +36,13 @@ export function resetInput (input) {
  */
 export function getIndex (array, value) {
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === value) return i
+    if (typeof array[i] === 'object') {
+      for (const item in array[i]) {
+        if (item === value) return i;
+      }
+    };
+
+    if (array[i].value === value) return i;
   }
   return -1;
 }
